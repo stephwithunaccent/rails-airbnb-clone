@@ -1,2 +1,33 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<div class="container">
+  <div>
+    <!-- Nav tabs -->
+    <ul class="nav nav-tabs text-center" role="tablist">
+      <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Profil</a></li>
+      <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Mes évènements</a></li>
+      <li role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">Mes participations</a></li>
+    </ul>
+
+    <!-- Tab panes -->
+    <div class="tab-content">
+      <div role="tabpanel" class="tab-pane fade in active" id="home">
+        <div class="container">
+          <div class="row">
+            <div class="col-xs-12 col-sm-4 border-right">
+              <%= image_tag "avatar.jpg", width: 200, class: "profile_picture" %>
+              <div><%= link_to "Modifier mon profil", "#", {class: "btn btn-default"} %></div>
+            </div>
+            <div class="col-xs-12 col-sm-8">
+              <p>Name: <%= @user.name %></p>
+              <p>Couple: <%= @user.sex %></p>
+              <h2>Commentaires</h2>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div role="tabpanel" class="tab-pane fade in " id="profile">...</div>
+      <div role="tabpanel" class="tab-pane fade in " id="messages">...</div>
+      <div role="tabpanel" class="tab-pane fade in " id="settings">...</div>
+    </div>
+
+  </div>
+</div>
