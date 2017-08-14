@@ -1,0 +1,51 @@
+.tabs {
+  display: flex;
+  padding: 10px 70px 0 70px;
+}
+.tabs a:hover {
+  cursor: pointer;
+  opacity: 0.8;
+  text-decoration: none;
+  color: red;
+}
+.tabs h3 {
+  font-size: 17px;
+  margin: 0;
+}
+.tabs p {
+  opacity: 0.5;
+  margin-bottom: 0;
+}
+.tab {
+  flex: 1 1 auto;
+  text-align: center;
+  padding: 20px 0;
+}
+.tab.active {
+  border-bottom: 1px solid red;
+  color: red;
+}
+.tab-content {
+  padding-top: 50px;
+}
+.tab-content p {
+  font-size: 20px;
+}
+
+
+.profile-infos {
+  display: flex;
+  padding: 15px;
+  border-bottom: 1px dotted #ddd;
+}
+.profile-label {
+  margin-right: 20px;
+  font-weight: bold;
+}
+.border-right {
+  border-right: 1px solid #ddd;
+}
+.profile_picture {
+  margin: 0 auto 10px auto;
+  display: block;
+}
