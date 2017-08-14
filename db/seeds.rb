@@ -3,10 +3,10 @@ User.destroy_all
 Event.destroy_all
 
 puts "generating seed"
-john = User.create({name: 'John', sex: 'Male'})
-karina = User.create({name: 'Karina', sex: 'Male'})
-pia = User.create({name: 'Pia', sex: 'Female'})
-leo = User.create({name: 'Leo', sex: 'Male'})
+john = User.create({email: "john@gmail.com", password: "123soleil", name: 'John', sex: 'Male'})
+karina = User.create({email: "karina@gmail.com", password: "123soleil", name: 'Karina', sex: 'Male'})
+pia = User.create({email: "pia@gmail.com", password: "123soleil", name: 'Pia', sex: 'Female'})
+leo = User.create({email: "leo@gmail.com", password: "123soleil", name: 'Leo', sex: 'Male'})
 
 
 
