@@ -6,6 +6,12 @@ class EventsController < ApplicationController
     end
   end
 
+  def my_events
+    @my_events = Event.all.select do |event|
+      event.user == current_user
+    end
+  end
+
   def show
     @event = Event.find(params[:id])
   end
