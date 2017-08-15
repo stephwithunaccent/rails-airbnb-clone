@@ -1,0 +1,7 @@
+<h1>Participations</h1>
+
+<% @participations.each do |participation| %>
+  <h2><%= participation.event.title %></h2>
+  <p><%= participation.event.description %></p>
+<% end %>
+
