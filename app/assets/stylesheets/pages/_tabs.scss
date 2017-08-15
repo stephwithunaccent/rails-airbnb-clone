@@ -1,3 +1,7 @@
+/** {
+  border: 1px solid black;
+}*/
+
 .tabs {
   display: flex;
   padding: 10px 70px 0 70px;
@@ -8,7 +12,7 @@
   text-decoration: none;
   color: red;
 }
-.tabs h3 {
+.tabs h2 {
   font-size: 17px;
   margin: 0;
 }
@@ -29,17 +33,24 @@
   padding-top: 50px;
 }
 .tab-content p {
-  font-size: 20px;
+  font-size: 18px;
 }
+
+
+input {
+  border-radius: 3px;
+  padding: 8px 10px;
+  border: 1px solid #DDD;
+}
+
 
 
 .profile-infos {
   display: flex;
   padding: 15px;
-  border-bottom: 1px dotted #ddd;
+  border-bottom: 1px solid #ddd;
 }
 .profile-label {
-  margin-right: 20px;
   font-weight: bold;
 }
 .border-right {

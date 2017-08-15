@@ -1,72 +1,51 @@
 <div class="container">
-    <!-- Nav tabs -->
-    <!-- <ul class="nav nav-tabs text-center" role="tablist">
-      <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Profil</a></li>
-      <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Mes évènements</a></li>
-      <li role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">Mes participations</a></li>
-    </ul>
-
-    <!-- Tab panes -->
-    <!-- <div class="tab-content">
-      <div role="tabpanel" class="tab-pane fade in active" id="home">
-          <div class="row">
-            <div class="col-xs-12 col-sm-4 border-right">
-              <%= image_tag "avatar.jpg", width: 200, class: "profile_picture" %>
-              <div><%= link_to "Modifier mon profil", "#", {class: "btn btn-default"} %></div>
-            </div>
-            <div class="col-xs-12 col-sm-8"> -->
-           <!--    <p>Name: <%= @user.name %></p>
-              <p>Couple: <%= @user.sex %></p>
-              <h2>Commentaires</h2>
-            </div>
-          </div>
-      </div>
-      <div role="tabpanel" class="tab-pane fade in " id="profile">...</div>
-      <div role="tabpanel" class="tab-pane fade in " id="messages">...</div>
-      <div role="tabpanel" class="tab-pane fade in " id="settings">...</div>
-    </div> -->
 
     <div class="tabs text-center">
       <a class="tab active" data-target="#bio">
-        <h3>Profile</h3>
+        <h2>Profile</h2>
       </a>
       <a class="tab" data-target="#projects">
-        <h3>My events</h3>
+        <h2>My events</h2>
       </a>
       <a class="tab" data-target="#contact">
-        <h3>My participations</h3>
+        <h2>My participations</h2>
       </a>
     </div>
 
     <div class="container">
-      <div class="tab-content" id="bio">
-        <div class="row">
+      <div class="row tab-content" id="bio">
+        <div class="col-xs-12 col-sm-4 border-right">
+          <%= image_tag "avatar.jpg", width: 200, class: "profile_picture" %>
+        </div>
+        <div class="col-xs-12 col-sm-8">
+          <%= simple_form_for @user do |f| %>
+            <%= f.input :name, disabled: true %>
+            <%= f.input :sex, disabled: true, collection: ["Homme & Femme", "Homme & Homme", "Femme & Femme"] %>
+          <% end %>
+          <i class="fa fa-pencil" aria-hidden="true"></i><%= link_to " edit my profile", edit_user_path(@user) %>
+          <h3>Reviews</h3>
+        </div>
+
+
+        <div class="tab-content hidden" id="projects">
           <div class="col-xs-12 col-sm-4 border-right">
-            <%= image_tag "avatar.jpg", width: 200, class: "profile_picture" %>
-            <div class="text-center">
-              <%= link_to "Modifier mon profil", "#", {class: "btn btn-default"} %>
-            </div>
+
           </div>
-          <div class="col-xs-12 col-sm-8">
-            <div class="profile-infos">
-              <p class="profile-label name">Name</p>
-              <p><%= @user.name %></p>
-            </div>
-            <div class="profile-infos">
-              <p class="profile-label couple">Couple</p>
-              <p><%= @user.sex %></p>
-            </div>
-            <h2>Commentaires</h2>
+            <div class="col-xs-12 col-sm-8">
+              <%= simple_form_for @user do |f| %>
+              <%= f.input :name, disabled: true %>
+              <%= f.input :sex, disabled: true, collection: ["Homme & Femme", "Homme & Homme", "Femme & Femme"] %>
+              <% end %>
+            <i class="fa fa-pencil" aria-hidden="true"></i><%= link_to " edit my profile", edit_user_path(@user) %>
+            <h3>Reviews</h3>
           </div>
         </div>
+
+
+        <div class="tab-content hidden" id="contact">
+          <p>Contact me if you want.</p>
+        </div>
       </div>
-      <div class="tab-content hidden" id="projects">
-        <p>Here are my projects.</p>
-      </div>
-      <div class="tab-content hidden" id="contact">
-        <p>Contact me if you want.</p>
-      </div>
-    </div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script src="javascript/tabs.js"></script>
