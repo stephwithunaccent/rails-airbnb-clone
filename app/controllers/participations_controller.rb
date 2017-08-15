@@ -1,6 +1,6 @@
 class ParticipationsController < ApplicationController
 
-  before_action :set_user, :set_event, only: [:new, :create]
+  before_action :set_event, only: [:new, :create]
   before_action :set_participation, only: [:edit, :update, :destroy, :show]
   def new
     @participation = Participation.new
@@ -8,7 +8,7 @@ class ParticipationsController < ApplicationController
 
   def create
     @participation = Participation.new
-    @participation.user = @user
+    @participation.user = current_user
     @participation.event = @event
     if @participation.save
       redirect_to events_path
@@ -41,9 +41,6 @@ class ParticipationsController < ApplicationController
   end
 
   private
-
-  def set_user
-  end
 
   def set_event
     @event = Event.find(params[:event_id])

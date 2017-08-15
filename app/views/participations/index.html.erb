@@ -1,7 +1,20 @@
-<h1>Participations</h1>
 
-<% @participations.each do |participation| %>
-  <h2><%= participation.event.title %></h2>
-  <p><%= participation.event.description %></p>
-<% end %>
-
+<div class="container"></div>
+<h1>My participations</h1>
+<div class="container">
+  <div class="row">
+    <% @participations.each do |participation| %>
+      <div class="col-xs-12 col-sm-4">
+        <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://images.unsplash.com/photo-1491707202941-6395f060840f?dpr=2&auto=format&fit=crop&w=1500&h=1125&q=80&cs=tinysrgb&crop=');">
+        <div class="card-category"><%= participation.event.title  %></div>
+        <div class="card-description">
+          <h2><%= ["moustache night tonight 🤗", "good times, very soon ✨", "yeha 🤠", "let's have some fun 🍑", "sex is my favorite sport 😇", "damn I love couples 😏", "pushing origin master 🤓", "sushi night 🍣"].sample  %></h2>
+          <p><%= participation.event.description  %></p>
+        </div>
+          <img class="card-user" src="https://kitt.lewagon.com/placeholder/users/tgenai">
+          <a class="card-link" href="#" ></a>
+        </div>
+      </div>
+    <%end%>
+  </div>
+</div>

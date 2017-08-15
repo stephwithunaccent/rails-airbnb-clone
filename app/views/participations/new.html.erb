@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
     <div class="col-xs-12 col-sm-6 col-sm-offset-3">
-        <%= simple_form_for @participation do |f| %>
+        <%= simple_form_for [@event, @participation] do |f| %>
           <%= f.button :submit, value: "Participate", class: "btn btn-primary"  %>
         <% end %>
     </div>

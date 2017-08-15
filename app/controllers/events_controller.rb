@@ -5,15 +5,15 @@ class EventsController < ApplicationController
   end
 
   def show
-    @event = Events.find(params[:id])
+    @event = Event.find(params[:id])
   end
 
   def new
-    @event = Events.new
+    @event = Event.new
   end
 
   def create
-    @event = Events.new(event_params)
+    @event = Event.new(event_params)
     if @event.save
       redirect_to events_path(@event)
     else
