@@ -1,19 +1,21 @@
 class EventsController < ApplicationController
 
   def index
-    @events = Event.all
+    @events = Event.all.select do |event|
+      event.user.sex == search_params[:sex]
+    end
   end
 
   def show
-    @event = Events.find(params[:id])
+    @event = Event.find(params[:id])
   end
 
   def new
-    @event = Events.new
+    @event = Event.new
   end
 
   def create
-    @event = Events.new(event_params)
+    @event = Event.new(event_params)
     if @event.save
       redirect_to events_path(@event)
     else
@@ -25,6 +27,10 @@ class EventsController < ApplicationController
 
   def events_params
     params.require(:events).permit(:title, :address, :description, :start_at)
+  end
+
+  def search_params
+    params.require(:search).permit(:sex)
   end
 end
 
