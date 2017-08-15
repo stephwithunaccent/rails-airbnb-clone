@@ -1,7 +1,21 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+puts "Cleaning seed"
+User.destroy_all
+Event.destroy_all
+
+puts "generating seed"
+john = User.create({email: "john@gmail.com", password: "123soleil", name: 'John', sex: 'Male'})
+karina = User.create({email: "karina@gmail.com", password: "123soleil", name: 'Karina', sex: 'Male'})
+pia = User.create({email: "pia@gmail.com", password: "123soleil", name: 'Pia', sex: 'Female'})
+leo = User.create({email: "leo@gmail.com", password: "123soleil", name: 'Leo', sex: 'Male'})
+
+
+
+jojo = Event.create!({title: 'Young couple up for fun', address: '9 rue de Rivoli, 75001 Paris', description: 'International young couple up for some new encounters.', start_at: Time.now, user_id: john.id })
+baller = Event.create({title: 'A night to remember', address: '16 rue des Blabla, 75001 Paris', description: 'International young couple up for some new encounters.', start_at: Time.now, user_id: karina.id})
+thursdayfun = Event.create({title: 'A change in the week', address: '9 rue des Expositions, 75007 Paris', description: 'International young couple up for some new encounters.', start_at: Time.now, user_id: pia.id})
+park = Event.create({title: 'A change in the week', address: '9 rue des Expositions, 75007 Paris', description: 'International young couple up for some new encounters.', start_at: Time.now, user_id: leo.id})
+doggy = Event.create({title: 'A change in the week', address: '9 rue des Expositions, 75007 Paris', description: 'International young couple up for some new encounters.', start_at: Time.now, user_id: john.id})
+kitty = Event.create({title: 'A change in the week', address: '9 rue des Expositions, 75007 Paris', description: 'International young couple up for some new encounters.', start_at: Time.now, user_id: leo.id})
+rabit = Event.create({title: 'A change in the week', address: '9 rue des Expositions, 75007 Paris', description: 'International young couple up for some new encounters.', start_at: Time.now, user_id: pia.id})
+
+puts "seed complete"
