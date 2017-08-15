@@ -1,38 +1,62 @@
+/** {
+  border: 1px solid black;
+}*/
+
 .tabs {
-  background: #53443F;
   display: flex;
-  padding: 10px 10px 0 10px
-}
-.tabs a {
-  color: white;
+  padding: 10px 70px 0 70px;
 }
 .tabs a:hover {
   cursor: pointer;
-  text-decoration: none;
   opacity: 0.8;
+  text-decoration: none;
+  color: red;
 }
-.tabs h3 {
+.tabs h2 {
   font-size: 17px;
-  font-weight: bold;
-  margin-top: 0;
+  margin: 0;
 }
 .tabs p {
   opacity: 0.5;
   margin-bottom: 0;
 }
 .tab {
-  background: #756A66;
-  flex: 0 0 25%;
+  flex: 1 1 auto;
   text-align: center;
   padding: 20px 0;
 }
-.tab:first-child {
-  border-radius: 10px 0 0 0;
-}
-.tab:last-child {
-  border-radius: 0 10px 0 0;
-}
 .tab.active {
-  background: white;
-  color: black;
+  border-bottom: 1px solid red;
+  color: red;
+}
+.tab-content {
+  padding-top: 50px;
+}
+.tab-content p {
+  font-size: 18px;
+}
+
+
+input {
+  border-radius: 3px;
+  padding: 8px 10px;
+  border: 1px solid #DDD;
+}
+
+
+
+.profile-infos {
+  display: flex;
+  padding: 15px;
+  border-bottom: 1px solid #ddd;
+}
+.profile-label {
+  font-weight: bold;
+}
+.border-right {
+  border-right: 1px solid #ddd;
+}
+.profile_picture {
+  margin: 0 auto 10px auto;
+  display: block;
 }
