@@ -1,7 +1,16 @@
 
-<div class="container"></div>
-<h1>My participations</h1>
 <div class="container">
+  <div class="tabs text-center">
+    <a class="tab" data-target="#bio">
+      <h2>Profile</h2>
+    </a>
+    <a class="tab" data-target="#projects">
+      <h2>My events</h2>
+    </a>
+    <%= link_to "My participations", user_participations_path(current_user), class: "tab active" %>
+  </div>
+
+
   <div class="row">
     <% @participations.each do |participation| %>
       <div class="col-xs-12 col-sm-4">
@@ -18,3 +27,6 @@
     <%end%>
   </div>
 </div>
+
+
+

@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :events, only: [ :index, :show, :new, :create ] do
     resources :participations, only: [:new, :create]
   end
-  resources :participations, only: [:index]
-  resources :users, only: [:show, :edit, :update]
+  resources :users, only: [:show, :edit, :update] do
+    resources :participations, only: [:index]
+  end
 end
