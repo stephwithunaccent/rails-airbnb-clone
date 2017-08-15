@@ -7,7 +7,7 @@ puts "Filling seed"
 
 john = User.create({name: "john", sex:"homme"})
 maria = User.create({name: "maria", sex:"femme"})
-new_event = Event.create!({user: john, start_at: Time.now, description: "some good fun", address: 'paris', title:'sex night'})
+new_event = Event.create!({user: john, start_at: "2016-08-15 15:37:33 +0200", description: "some good fun", address: 'paris', title:'sex night'})
 participation_1 = Participation.new
 participation_1.user = maria
 participation_1.event = new_event

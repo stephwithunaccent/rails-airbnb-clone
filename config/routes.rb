@@ -6,6 +6,6 @@ Rails.application.routes.draw do
     resources :participations, only: [:new, :create]
   end
   resources :users, only: [:show, :edit, :update] do
-    resources :participations, only: [:index]
+    resources :participations, only: [:index, :edit, :update, :show]
   end
 end

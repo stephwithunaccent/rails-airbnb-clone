@@ -1,0 +1,7 @@
+<h1>Comment and rate your night</h1>
+
+<%= simple_form_for [current_user, @participation] do |f|%>
+  <%= f.input :review, placeholder: "Very nice cock" %>
+  <%= f.input :rating, placeholder: "9" %>
+  <%= f.button :submit, class: "btn btn-primary"  %>
+<% end %>
