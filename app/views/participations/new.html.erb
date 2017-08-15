@@ -1,2 +1,9 @@
-<h1>Participations#new</h1>
-<p>Find me in app/views/participations/new.html.erb</p>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-6 col-sm-offset-3">
+        <%= simple_form_for @participation do |f| %>
+          <%= f.button :submit, value: "Participate", class: "btn btn-primary"  %>
+        <% end %>
+    </div>
+  </div>
+</div>
