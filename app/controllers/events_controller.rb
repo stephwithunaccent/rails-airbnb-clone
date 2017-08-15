@@ -1,7 +1,9 @@
 class EventsController < ApplicationController
 
   def index
-    @events = Event.all
+    @events = Event.all.select do |event|
+      event.user.sex == search_params[:sex]
+    end
   end
 
   def show
@@ -25,6 +27,10 @@ class EventsController < ApplicationController
 
   def events_params
     params.require(:events).permit(:title, :address, :description, :start_at)
+  end
+
+  def search_params
+    params.require(:search).permit(:sex)
   end
 end
 
