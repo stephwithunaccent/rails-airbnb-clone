@@ -2,6 +2,6 @@
 
 <%= simple_form_for [current_user, @participation] do |f|%>
   <%= f.input :review, placeholder: "Very nice cock" %>
-  <%= f.input :rating, placeholder: "9" %>
+  <%= f.input :rating, collection: 1..10%>
   <%= f.button :submit, class: "btn btn-primary"  %>
 <% end %>

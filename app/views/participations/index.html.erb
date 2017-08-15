@@ -44,7 +44,7 @@
               <a class="card-link" href="#" ></a>
             </div>
             <% unless participation.review %>
-              <%= link_to "Add a review", edit_user_participations_path(current_user, participation) %>
+              <%= link_to "Add a review", edit_user_participation_path(current_user, participation) %>
             <% end %>
           </div>
         <% end %>

@@ -22,7 +22,7 @@ class ParticipationsController < ApplicationController
 
   def update
     if @participation.update(participations_params)
-      redirect_to @user
+      redirect_to user_participations_path(current_user)
     else
       render :edit
     end
@@ -47,7 +47,7 @@ class ParticipationsController < ApplicationController
   end
 
   def participations_params
-    require(:participation).permit(:rating, :review)
+    params.require(:participation).permit(:rating, :review)
   end
 
   def set_participation
