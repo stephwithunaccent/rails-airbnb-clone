@@ -18,18 +18,10 @@
            <% if !@user.photo? %>
             <div class="text-center">
               <%= cl_image_tag("avatar-placeholder.png", width: 200, height: 200, crop: :fill) %>
-              <%= simple_form_for @user do |f| %>
-                <%= f.input :photo, as: :attachinary %>
-                <%= f.submit "Save", class: "btn btn-default" %>
-              <% end %>
             </div>
           <% else %>
             <div class="text-center">
               <%= cl_image_tag @user.photo.path, width: 200, height: 200, radius: :max, crop: :fill,  gravity: :face %>
-              <%= simple_form_for @user do |f| %>
-                <%= f.input :photo, as: :attachinary, label: false %>
-                <%= f.submit "Save", class: "btn btn-default" %>
-              <% end %>
             </div>
           <% end %>
         </div>
@@ -38,6 +30,7 @@
           <%= simple_form_for @user do |f| %>
             <%= f.input :name, label: "My couple name is" %>
             <%= f.input :sex, collection: ["Man & Woman", "Man & Man", "Woman & Woman"], label: "My couple is" %>
+            <%= f.input :photo, as: :attachinary, class: "image-field"  %>
             <%= f.button :submit %>
           <% end %>
           <h3>Reviews</h3>
