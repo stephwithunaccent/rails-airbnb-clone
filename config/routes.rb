@@ -7,8 +7,12 @@ Rails.application.routes.draw do
     collection do
       get 'select', to: "events#select"
     end
+    resources :users, only: [ :show ]
+      collection do
+        get 'my_events', to: "events#my_events"
+      end
   end
-  
+
   resources :users, only: [:show, :edit, :update] do
     resources :participations, only: [:index, :edit, :update, :show]
   end
