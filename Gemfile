@@ -17,7 +17,13 @@ gem 'simple_form'
 gem 'uglifier'
 gem 'devise'
 gem "font-awesome-rails"
+gem "geocoder"
+gem "gmaps4rails"
+gem "coffee-rails"
 
+source 'https://rails-assets.org' do
+gem "rails-assets-underscore"
+end
 
 
 group :development, :test do
