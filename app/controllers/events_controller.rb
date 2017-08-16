@@ -1,7 +1,7 @@
 class EventsController < ApplicationController
 
   def index
-    if params[:search]
+    if search_params[:sex].present?
       @events = Event.all.select do |event|
         event.user.sex == search_params[:sex]
       end
