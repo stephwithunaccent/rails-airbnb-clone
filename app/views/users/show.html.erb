@@ -22,8 +22,8 @@
         </div>
         <div class="col-xs-12 col-sm-8">
           <%= simple_form_for current_user do |f| %>
-            <%= f.input :name, disabled: true, label: "My couple name is" %>
-            <%= f.input :sex, disabled: true, collection: ["Man & Woman", "Man & Man", "Woman & Woman"], label: "My couple is" %>
+            <%= f.input :name, disabled: true, label: "Couple Name" %>
+            <%= f.input :sex, disabled: true, collection: ["Man & Woman", "Man & Man", "Woman & Woman"], label: "Couple Type" %>
           <% end %>
           <i class="fa fa-pencil" aria-hidden="true"></i><%= link_to " edit my profile", edit_user_path(current_user) %>
           <h3>Reviews</h3>

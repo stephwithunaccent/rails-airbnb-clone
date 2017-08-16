@@ -1,7 +1,14 @@
-<h1>Comment and rate your night</h1>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-6 col-sm-offset-3">
+    <h1>Comment and rate your night</h1>
 
-<%= simple_form_for [current_user, @participation] do |f|%>
-  <%= f.input :review, placeholder: "Very nice cock" %>
-  <%= f.input :rating, collection: 1..10%>
-  <%= f.button :submit, class: "btn btn-primary"  %>
-<% end %>
+      <%= simple_form_for [current_user, @participation] do |f|%>
+        <%= f.input :review, placeholder: "Very nice cock" %>
+        <%= f.input :rating, collection: 1..10%>
+        <%= f.button :submit, class: "btn btn-primary"  %>
+      <% end %>
+
+    </div>
+  </div>
+</div>
