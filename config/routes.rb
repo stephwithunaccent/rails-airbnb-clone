@@ -17,4 +17,5 @@ Rails.application.routes.draw do
     resources :participations, only: [:index, :edit, :update, :show]
   end
 
+mount Attachinary::Engine => "/attachinary"
 end
