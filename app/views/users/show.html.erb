@@ -14,8 +14,8 @@
         </div>
         <div class="col-xs-12 col-sm-8">
           <%= simple_form_for @user do |f| %>
-            <%= f.input :name, disabled: true %>
-            <%= f.input :sex, disabled: true, collection: ["Homme & Femme", "Homme & Homme", "Femme & Femme"] %>
+            <%= f.input :name, disabled: true, label: 'Username' %>
+            <%= f.input :sex, disabled: true, collection: ["Homme & Femme", "Homme & Homme", "Femme & Femme"], label: "Couple type" %>
           <% end %>
           <i class="fa fa-pencil" aria-hidden="true"></i><%= link_to " edit my profile", edit_user_path(@user) %>
           <h3>Reviews</h3>
