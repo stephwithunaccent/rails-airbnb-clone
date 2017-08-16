@@ -2,14 +2,14 @@
 <div class="container">
   <div class="tabs text-center">
     <%= link_to "Profile", user_path(current_user), class: "tab" %>
-    <%= link_to "My events", events_path, class: "tab" %>
+    <%= link_to "My swings", events_path, class: "tab" %>
     <%= link_to "My participations", user_participations_path(current_user), class: "tab active" %>
   </div>
 
 
   <div class="row">
     <div class="to-come">
-      <h2>To come</h2>
+      <h2>Upcomimg</h2>
       <% @participations.each do |participation| %>
         <% if participation.event.start_at > Time.now %>
           <div class="col-xs-12 col-sm-4">
