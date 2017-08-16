@@ -1,20 +1,24 @@
-<div class="container">
+<div class="tabs text-center">
+  <%= link_to "Profile", user_path(current_user), class: "tab" %>
+  <%= link_to "My events", "#", class: "tab active" %>
+  <%= link_to "My participations", user_participations_path(current_user), class: "tab" %>
+</div>
 
-  <div class="tabs text-center">
-    <%= link_to "Profile", user_path(current_user), class: "tab" %>
-    <%= link_to "My events", "#", class: "tab active" %>
-    <%= link_to "My participations", user_participations_path(current_user), class: "tab" %>
-  </div>
-
-  <div class="container">
-    <%= link_to "Create a Swing", new_event_path %>
-    <% @my_events.each do |event| %>
-      <div class="event">
+<div id="events">
+  <% @my_events.each do |event| %>
+    <div class="event">
+      <div class="title">
         <%= event.title %>
-        <%= event.start_at %>
+      </div>
+      <div class="details">
+        <p><%= event.start_at %></p>
+        <p><%= event.user.name %></p>
+      </div>
+      <div class="description">
         <%= event.description %>
       </div>
-    <% end %>
+    </div>
+  <% end %>
+  <%= link_to "Create a Swing", new_event_path %>
 
-  </div>
 </div>
