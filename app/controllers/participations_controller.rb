@@ -11,9 +11,9 @@ class ParticipationsController < ApplicationController
     @participation.user = current_user
     @participation.event = @event
     if @participation.save
-      redirect_to events_path
+      redirect_to user_participations_path(current_user)
     else
-      render events_path
+      render event_path(@event)
     end
   end
 
