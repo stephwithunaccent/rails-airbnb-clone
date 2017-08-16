@@ -1,0 +1,16 @@
+.event {
+  margin: 30px 10px;
+  display: flex;
+  justify-content: space-around;
+  border-bottom: solid $night 1px;
+  color: $night;
+
+}
+
+#events {
+  width: 80%;
+  position: relative;
+  left: 10%;
+  margin: 50px;
+  text-align: left;
+}
