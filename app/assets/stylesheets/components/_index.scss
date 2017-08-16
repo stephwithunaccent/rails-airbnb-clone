@@ -5,3 +5,8 @@
 @import "tabs";
 @import "banner";
 @import "form";
+
+
+abbr[title="required"] {
+  display: none;
+}
