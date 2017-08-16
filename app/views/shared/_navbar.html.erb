@@ -15,10 +15,10 @@
       <!-- Avatar with dropdown menu -->
       <div class="navbar-wagon-item">
         <div class="dropdown">
-          <% if !@user.photo? %>
+          <% if !current_user.photo? %>
             <% photo_url = "avatar-placeholder.png" %>
           <% else %>
-            <% photo_url = @user.photo.path %>
+            <% photo_url = current_user.photo.path %>
           <% end %>
           <%= cl_image_tag(photo_url, width: 40, height: 40, crop: :fill,  class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown") %>
 
