@@ -2,12 +2,25 @@
   <img src="https://images.unsplash.com/photo-1491707202941-6395f060840f?dpr=2&auto=format&fit=crop&w=1500&h=1125&q=80&cs=tinysrgb&crop=" alt="">
 </div>
 
-<div class="container">
-  <div class="event-description">
-    <h1><%= @event.title %></h1>
-    <h2><%= @event.user.name %></h2>
-    <h3><%= @event.address %></h3>
-    <p><%= @event.description %></p>
+<div class="event">
+  <div class="row">
+    <div class="col-sm-6">
+      <div class="event-description">
+        <h1><%= @event.title %></h1>
+        <h2>
+          <%= @event.user.name %>,
+          <%= @event.address %>
+        </h2>
+
+        <p><%= @event.description %></p>
+      </div>
+    </div>
+
+    <div class="col-sm-4 col-sm-offset-2">
+      <div class="participate">
+        <%= link_to "Enter the dance", new_event_participation_path(@event), class: "btn btn-primary cta"  %>
+      </div>
+    </div>
   </div>
 </div>
 
