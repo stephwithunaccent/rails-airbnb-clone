@@ -3,6 +3,11 @@
 @import "navbar";
 @import "card";
 @import "tabs";
+@import "banner";
 @import "form";
 @import "banner";
 
+
+abbr[title="required"] {
+  display: none;
+}
