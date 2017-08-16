@@ -1,7 +1,10 @@
-body {
-  background-color:#fff;
-  text-align: center;
-  color:#ce3635;
-  padding-top:10em;
+.banner {
+  font-family: 'Avenir';
+  img {
+    height: 500px;
+    width: 100%;
+    object-fit: cover;
+  }
 }
-* { color:#ce3635; text-decoration: none;}
+
+
