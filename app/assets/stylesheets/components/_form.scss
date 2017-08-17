@@ -5,3 +5,8 @@
 .form-inputs {
   margin-top: 20px;
 }
+
+.form-control[disabled] {
+  background-color: #fff;
+  cursor: auto;
+}
