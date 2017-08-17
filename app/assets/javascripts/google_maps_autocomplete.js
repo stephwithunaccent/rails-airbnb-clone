@@ -12,11 +12,25 @@ $(document).ready(function() {
   }
 });
 
+$(document).ready(function() {
+  var eventAddress = $('#event_address').get(0);
+
+  if (eventAddress) {
+    var autocomplete2 = new google.maps.places.Autocomplete(eventAddress, { types: ['geocode'] });
+    google.maps.event.addListener(autocomplete2, 'place_changed', onPlaceChanged);
+    google.maps.event.addDomListener(eventAddress, 'keydown', function(e) {
+      if (e.keyCode == 13) {
+        e.preventDefault(); // Do not submit the form on Enter.
+      }
+    });
+  }
+});
+
 function onPlaceChanged() {
   var place = this.getPlace();
   var components = getAddressComponents(place);
-
   $('#search_address').trigger('blur').val(components.address);
+  $('#event_address').trigger('blur').val(components.address);
   // $('#flat_zip_code').val(components.zip_code);
   // $('#flat_city').val(components.city);
   // if (components.country_code) {
