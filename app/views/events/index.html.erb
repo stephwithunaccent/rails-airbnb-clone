@@ -5,8 +5,8 @@
 
     <div class="col-sm-12">
       <%= simple_form_for :search, :html => { role: 'form', class: 'form-inline' }, url: events_path, method: :get do |f|  %>
-      <%= f.input :sex, prompt: "I am horny for", :label => false, collection:['Male & Male', 'Female & Female', 'Male & Female'], value: params[:search][:sex] %>
-      <%= f.input :address, placeholder: "Paris", label: false, value: params[:search][:address] %>
+      <%= f.input :sex, prompt: "I am horny for", :label => false, collection:['Male & Male', 'Female & Female', 'Male & Female'], input_html: { value: params[:search][:sex] } %>
+      <%= f.input :address, placeholder: "Paris", label: false, input_html: { value: params[:search][:address] } %>
       <% if user_signed_in? %>
         <%= f.button :submit, "Let's swing" %>
       <% else %>
