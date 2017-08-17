@@ -17,22 +17,25 @@
 }
 
 .card-footer {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
   padding: 10px;
   background-color: #fff;
 }
 
+.card-info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
 .card-footer p {
-  color: rgba(0,0,0,0.4);
+  color: rgba(0,0,0,0.6);
   font-weight: lighter;
-  font-size: 12px;
+  font-size: 13px;
   margin: 5px;
 }
 
 .card:hover {
-  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.25), 0 5px 10px rgba(0,0,0,0.22);
 }
 
 .card-user {
