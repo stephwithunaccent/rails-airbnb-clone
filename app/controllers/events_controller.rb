@@ -1,13 +1,33 @@
 class EventsController < ApplicationController
 
   def index
-    if search_params[:sex].present?
+
+    search = Geocoder.search(params[:search][:address]).first
+    @near_events = Event.near(search.coordinates, 20)
+
+    if search_params[:sex].present? && search_params[:address].present?
+      @boucle = 1
+      @events = Event.all.select do |event|
+        @near_events.include?(event) && event.user.sex == search_params[:sex]
+      end
+
+    elsif !search_params[:address].present? && search_params[:sex].present?
+      @boucle = 2
       @events = Event.all.select do |event|
         event.user.sex == search_params[:sex]
       end
+
+    elsif !search_params[:sex].present? && search_params[:address].present?
+      @boucle = 3
+      @events = Event.all.select do |event|
+        @near_events.include?(event)
+      end
+
     else
+      @boucle = 4
       @events = Event.all
     end
+
     @hash = Gmaps4rails.build_markers(@events) do |event, marker|
       marker.lat event.latitude
       marker.lng event.longitude
