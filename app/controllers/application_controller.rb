@@ -9,7 +9,7 @@ class ApplicationController < ActionController::Base
     # same as params.require(:user).permit(:first_name, :last_name)
 
     # For additional in app/views/devise/registrations/edit.html.erb
-    devise_parameter_sanitizer.permit(:account_update, keys: [:first_name, :last_name, :sex, :age])
+    devise_parameter_sanitizer.permit(:account_update, keys: [:first_name, :last_name, :sex, :age, :photo])
   end
 end
 
