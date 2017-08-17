@@ -20,8 +20,10 @@ participation_1.save
 
 event2 = Event.create({user: leo, start_at: "2018-06-15 15:37:33 +0200", description: "Hey, we love sex and violence. We are welcoming free lancers of pur pleasure", address: 'Londres', title:'Fucking & Punshing'})
 participation_2 = Participation.new
-participation_2.user = lea
+participation_2.user = jerome
 participation_2.event = event2
+participation_1.rating = 7
+participation_1.review = "Amazing night!! 😍 I am looking for the next time!"
 participation_2.save
 
 event3 = Event.create({user: jerome, start_at: "2016-07-15 15:37:33 +0200", description: "Hey, we love sex and violence. We are welcoming free lancers of pur pleasure", address: 'Londres', title:'Fucking & Punshing'})
