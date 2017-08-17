@@ -10,7 +10,10 @@
     <%= stylesheet_link_tag 'application', media: 'all' %>
   </head>
   <body>
-    <%= render 'shared/navbar' %>
+
+    <%= render 'shared/navbar' unless yield(:navbar_home) == "yes" %>
+    <%= render 'components/navbar_home' if yield(:navbar_home) == "yes" %>
+
     <%= render 'shared/flashes' %>
     <%= yield %>
     <p class="notice"><%= notice %></p>
@@ -24,9 +27,6 @@
 
 
     <%= yield(:after_js) %> <!-- I am calling after_js from my home -->
-
-
-    <%= yield(:after_js2) %>
 
     <%= cloudinary_js_config %>
 

@@ -1,10 +1,7 @@
-<style>
-  .navbar-wagon { display:none; }
-</style>
+<% content_for(:navbar_home, "yes") %>
 
 <div class="banner" style="background-image: linear-gradient(-225deg, rgba(5,6,32,0.2) 0%, rgba(5,6,32,0.8) 50%), url(<%= image_url('fresque.jpg') %>)";>
   <div class="banner-content">
-
       <h1 href="" class="typewrite" data-period="2000" data-type='[ "Hi, I am looking for Fun.", "I am Open-minded.", "... and I love Sex." ]'>
         <span class="wrap"></span>
       </h1>
@@ -12,6 +9,7 @@
 
     <%= simple_form_for :search, :html => { role: 'form', class: 'form-inline' }, url: events_path, method: :get do |f|  %>
       <%= f.input :sex, prompt: "I am horny for", :label => false, collection:['Male & Male', 'Female & Female', 'Male & Female'] %>
+      <%= f.input :address, placeholder: "Paris", label: false %>
       <% if user_signed_in? %>
         <%= f.button :submit, "Let's swing" %>
       <% else %>
@@ -63,8 +61,28 @@
   </div>
 
   <div class="container">
+    <div class="beige-bg" id="how-it-works">
+      <div class="fullwidth-content">
+        <div id="arrow-down">
+          <div></div>
+          </div>
+          <h2 style="text-align:center">How to Swing?</h2>
+          <div class="values-unit" id="values-unit-1">
+            <h3 class="num">
 
+            </h3>
+            <h4>Choose your orientation</h4>
+            <p>
+              We welcome heterosexuals, homese
+          </div>
+          <div class="values-unit" id="values-unit-1"></div>
+          <div class="values-unit" id="values-unit-1"></div>
+      </div>
+    </div>
   </div>
-<% content_for :after_js2 do %>
-<%= render 'banner' %>
-<% end %>
+
+  <% content_for :after_js do %>
+    <%= render 'banner' %>
+  <% end %>
+
+
