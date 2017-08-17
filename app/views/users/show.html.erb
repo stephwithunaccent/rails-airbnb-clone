@@ -27,18 +27,23 @@
           <% end %>
           <i class="fa fa-pencil" aria-hidden="true"></i><%= link_to " edit my profile", edit_user_path(current_user) %>
           <h3>Reviews</h3>
-          <div class="reviews">
+
+          <div class="review">
+            <%= cl_image_tag("avatar-placeholder.png", width: 60, height: 60, crop: :fill) %>
             <% current_user.events.each do |event| %>
               <% event.participations.each do |participation| %>
-                <div class="review">
-                  <%= "★" * participation.rating.to_i %>
-                  <%= participation.review %>
+                <div class="review-details">
+                <%  full = participation.rating.to_i %>
+                <%  empty = full - 10 %>
+                <span><%= "✭" * full %></span>
+
+                <p><%= participation.review %></p>
                 </div>
               <% end %>
             <% end %>
           </div>
-        </div>
 
+        </div>
       </div>
   </div>
 </div>
