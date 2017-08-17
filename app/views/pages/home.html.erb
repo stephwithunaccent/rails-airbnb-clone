@@ -12,6 +12,7 @@
 
     <%= simple_form_for :search, :html => { role: 'form', class: 'form-inline' }, url: events_path, method: :get do |f|  %>
       <%= f.input :sex, prompt: "I am horny for", :label => false, collection:['Male & Male', 'Female & Female', 'Male & Female'] %>
+      <%= f.input :address, placeholder: "Paris", label: false %>
       <% if user_signed_in? %>
         <%= f.button :submit, "Let's swing" %>
       <% else %>
@@ -62,9 +63,8 @@
     </div>
   </div>
 
-  <div class="container">
-
-  </div>
-<% content_for :after_js2 do %>
-<%= render 'banner' %>
+<% content_for :after_js do %>
+  <%= render 'banner' %>
+  <script src="https://maps.googleapis.com/maps/api/js?libraries=places&amp;key=AIzaSyDANjx3bosEtIyzJaoWs50Wnt6nt_1rmxU"></script>
 <% end %>
+
