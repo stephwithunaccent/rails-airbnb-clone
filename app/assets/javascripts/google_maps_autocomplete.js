@@ -1,5 +1,6 @@
 $(document).ready(function() {
   var address = $('#search_address').get(0);
+  console.log(address);
 
   if (address) {
     var autocomplete = new google.maps.places.Autocomplete(address, { types: ['geocode'] });
@@ -16,8 +17,9 @@ $(document).ready(function() {
   var eventAddress = $('#event_address').get(0);
 
   if (eventAddress) {
-    var autocomplete2 = new google.maps.places.Autocomplete(eventAddress, { types: ['geocode'] });
-    google.maps.event.addListener(autocomplete2, 'place_changed', onPlaceChanged);
+    console.log(eventAddress);
+    var autocomplete_bis = new google.maps.places.Autocomplete(eventAddress, { types: ['geocode'] });
+    google.maps.event.addListener(autocomplete_bis, 'place_changed', onPlaceChanged);
     google.maps.event.addDomListener(eventAddress, 'keydown', function(e) {
       if (e.keyCode == 13) {
         e.preventDefault(); // Do not submit the form on Enter.
