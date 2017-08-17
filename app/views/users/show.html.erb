@@ -27,6 +27,16 @@
           <% end %>
           <i class="fa fa-pencil" aria-hidden="true"></i><%= link_to " edit my profile", edit_user_path(current_user) %>
           <h3>Reviews</h3>
+          <div class="reviews">
+            <% current_user.events.each do |event| %>
+              <% event.participations.each do |participation| %>
+                <div class="review">
+                  <%= "★" * participation.rating.to_i %>
+                  <%= participation.review %>
+                </div>
+              <% end %>
+            <% end %>
+          </div>
         </div>
 
       </div>
