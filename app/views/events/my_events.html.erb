@@ -1,5 +1,4 @@
-
-<div class="container">
+<div id="events">
 
   <div class="tabs text-center">
     <%= link_to "Profile", user_path(current_user), class: "tab" %>
@@ -7,21 +6,24 @@
     <%= link_to "My participations", user_participations_path(current_user), class: "tab" %>
   </div>
 
-<div id="events">
+
   <% @my_events.each do |event| %>
     <div class="event">
+      <div class="details">
+        <%= event.start_at %>
+      </div>
       <div class="title">
         <%= event.title %>
-      </div>
-      <div class="details">
-        <p><%= event.start_at %></p>
-        <p><%= event.user.name %></p>
       </div>
       <div class="description">
         <%= event.description %>
       </div>
     </div>
   <% end %>
-  <%= link_to "Create a Swing", new_event_path %>
-
+  <div class="swing">
+    <%= link_to "Create a Swing", new_event_path, class: "btn btn-primary cta" %>
+  </div>
 </div>
+
+
+
