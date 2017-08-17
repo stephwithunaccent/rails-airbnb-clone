@@ -17,6 +17,7 @@ gem 'uglifier'
 gem 'devise'
 gem "font-awesome-rails"
 gem "geocoder"
+gem 'country_select'
 gem "gmaps4rails"
 source 'https://rails-assets.org' do
   gem "rails-assets-underscore"
