@@ -1,16 +1,31 @@
 .event {
-  margin: 30px 10px;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   border-bottom: solid $night 1px;
-  color: $night;
+  position: relative;
+  left: 20px;
+  margin-top: 70px;
+  padding-bottom: 30px;
 
 }
 
 #events {
-  width: 80%;
-  position: relative;
-  left: 10%;
-  margin: 50px;
+  margin: 80px 100px;
   text-align: left;
+}
+
+.title, .description, .details {
+  color: $night;
+}
+
+.title {
+  font-size: 25px;
+  position: relative;
+  bottom: 8px;
+}
+
+.swing {
+  margin: 100px;
+  position: relative;
+  left: 800px;
 }
