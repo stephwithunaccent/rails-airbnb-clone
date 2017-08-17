@@ -12,7 +12,7 @@ leo = User.create({email: "leo@gmail.com", password: "123soleil", name: 'Kim & L
 
 event1 = Event.create({user: leo, start_at: "2018-05-15 15:37:33 +0200", description: "Un peu de plaisir n'a jamais tué personne... Jeu de main jeu de vilain...", address: 'Paris', title:'Les Jambes Attachées'})
 participation_1 = Participation.new
-participation_1.user = jerome
+participation_1.user = lea
 participation_1.event = event1
 participation_1.rating = 7
 participation_1.review = "Very nice night in a very nice place. They are both very hot!"

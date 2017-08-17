@@ -29,16 +29,17 @@
           <h3>Reviews</h3>
 
           <div class="review">
-            <%= cl_image_tag("avatar-placeholder.png", width: 60, height: 60, crop: :fill) %>
             <% current_user.events.each do |event| %>
               <% event.participations.each do |participation| %>
-                <div class="review-details">
-                <%  full = participation.rating.to_i %>
-                <%  empty = full - 10 %>
-                <span><%= "✭" * full %></span>
-
-                <p><%= participation.review %></p>
-                </div>
+              <% if participation.review %>
+                  <%= cl_image_tag "avatar-placeholder.png", width: 60, height: 60, crop: :fill %>
+                  <div class="review-details">
+                  <%  full = participation.rating.to_i %>
+                  <%  empty = full - 10 %>
+                  <span><%= "✭" * full %></span>
+                  <p><%= participation.review %></p>
+                  </div>
+                <% end %>
               <% end %>
             <% end %>
           </div>
