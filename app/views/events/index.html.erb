@@ -16,29 +16,7 @@
 
     <div class="col-sm-8">
       <div class="main-content">
-      <h2>search</h2>
-        Address
-        <%= params[:search][:address].present? %>
-        Sex
-        <%= params[:search][:sex].present? %>
-      <h2>Events nearby</h2>
-        <% @near_events.each do |event| %>
-          <%= event.id %>
-        <% end %>
-        <h2>Events</h2>
-
-        <% @events.each do |event| %>
-          <%= event.id %>
-          <%= @near_events.include?(event) %>
-        <% end %>
-
-        <br>
-        <%= params[:search][:address].present? && !params[:search][:sex].present? %>
-        <br>
-        <%= !params[:search][:address].present? && !params[:search][:sex].present? %>
-
       <h1 class="text-center">Events for ...</h1>
-        <%= @boucle %>
         <div class="row">
           <% @events.each do |event| %>
             <div class="col-xs-12 col-sm-6 col-md-4">

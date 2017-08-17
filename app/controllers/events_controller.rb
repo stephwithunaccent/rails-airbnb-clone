@@ -17,7 +17,7 @@ class EventsController < ApplicationController
         event.user.sex == search_params[:sex]
       end
 
-    elsif !search_params[:sex].present? && search_params[:address].present?
+    elsif search_params[:sex].present? && search_params[:address].present?
       @boucle = 3
       @events = Event.all.select do |event|
         @near_events.include?(event)
@@ -27,6 +27,7 @@ class EventsController < ApplicationController
       @boucle = 4
       @events = Event.all
     end
+
 
     @hash = Gmaps4rails.build_markers(@events) do |event, marker|
       marker.lat event.latitude
@@ -68,7 +69,7 @@ class EventsController < ApplicationController
   end
 
   def search_params
-    params.require(:search).permit(:sex)
+    params.require(:search).permit(:sex, :address)
   end
 end
 
