@@ -19,6 +19,7 @@
 
           <% @events.each do |event| %>
             <div class="col-xs-12 col-sm-6 col-md-4">
+              <% if start_at > Time.now %>
               <div class="card">
                 <% if event.photo? %>
                   <div class="card-body" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path event.photo.path%>');">
@@ -39,6 +40,7 @@
                   <p><i class="fa fa-calendar" aria-hidden="true"></i> <%= event.start_at.strftime("Scheduled on %d/%m/%Y") %></p>
                 </div>
               </div>
+              <%end%>
             </div>
           <%end%>
         </div>
