@@ -21,13 +21,19 @@
           <% @events.each do |event| %>
             <div class="col-xs-12 col-sm-6 col-md-4">
               <div class="card">
+                <% if event.user.photo? %>
+                  <div class="card-body" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path event.photo.path%>');">
+                <% else %>
                 <div class="card-body" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://images.unsplash.com/photo-1491707202941-6395f060840f?dpr=2&auto=format&fit=crop&w=1500&h=1125&q=80&cs=tinysrgb&crop=');">
+                <% end %>
                   <div class="card-category"><%= event.user.name  %></div>
                     <div class="card-description">
                       <h2><%= event.title %></h2>
                       <p><i class="fa fa-map-marker" aria-hidden="true"></i> <%= event.address %></p>
                     </div>
-                  <img class="card-user" src="https://kitt.lewagon.com/placeholder/users/tgenai">
+                  <% if event.user.photo? %>
+                    <img class="card-user" src="<%= cl_image_path event.user.photo.path%>">
+                  <% end %>
                   <%= link_to "", event_path(event), class: "card-link"  %>
                 </div>
                 <div class="card-footer">
