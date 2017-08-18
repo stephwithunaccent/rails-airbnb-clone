@@ -24,7 +24,7 @@ emmanuel.photo_url = url
 leo = User.create({email: "leo@gmail.com", password: "123soleil", name: 'Kim & Leo', sex: '⚤ Straight'})
 
 url = "http://res.cloudinary.com/dbojzvt5e/image/upload/v1503058354/Eyes-Wide-Shut-347_zi56sz.jpg"
-event1 = Event.create({user: jerome, start_at: "2018-05-15 15:37:33 +0200", description: "Un peu de plaisir n'a jamais tué personne... Jeu de main jeu de vilain...", address: 'Paris, 6 rue des Abesses', title:'Les Jambes Attachées'})
+event1 = Event.create({user: jerome, start_at: DateTime.now + 1.week, description: "Un peu de plaisir n'a jamais tué personne... Jeu de main jeu de vilain...", address: 'Paris, 6 rue des Abesses', title:'Les Jambes Attachées'})
 participation_1 = Participation.new
 participation_1.user = lea
 participation_1.event = event1

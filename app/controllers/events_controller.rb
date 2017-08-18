@@ -1,9 +1,8 @@
 class EventsController < ApplicationController
 
   def index
+    @near_events = Event.near(params[:search][:address], 20).where("start_at > ?", DateTime.now)
 
-    search = Geocoder.search(params[:search][:address]).first
-    @near_events = Event.near(search.coordinates, 20)
 
     if search_params[:sex].present? && search_params[:address].present?
       @events = Event.all.select do |event|
