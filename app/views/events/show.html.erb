@@ -1,39 +1,42 @@
-<div class="banner" style="background-image: linear-gradient(-225deg, rgba(5,6,32,0.2) 0%, rgba(5,6,32,0.8) 50%), url(<%= image_url('fresque.jpg') %>)"; >
-  <div class="banner-content">
+<div class="event-show">
 
-<aside class="profile-card">
-  <header>
-    <!-- here’s the avatar -->
-    <a target="_blank" href="#">
-      <img src="https://images.unsplash.com/photo-1491707202941-6395f060840f?dpr=2&auto=format&fit=crop&w=1500&h=1125&q=80&cs=tinysrgb&crop=" class="hoverZoomLink">
-    </a>
+  <div class="banner" style="background-image: linear-gradient(-225deg, rgba(5,6,32,0.2) 0%, rgba(5,6,32,0.8) 50%), url(<%= image_url('fresque.jpg') %>)"; >
+    <div class="banner-content">
 
-    <!-- the username -->
-    <h1>
-            <%= @event.user.name %>
-          </h1>
+  <aside class="profile-card">
+    <header>
+      <!-- here’s the avatar -->
+      <a target="_blank" href="#">
+        <img src="https://images.unsplash.com/photo-1491707202941-6395f060840f?dpr=2&auto=format&fit=crop&w=1500&h=1125&q=80&cs=tinysrgb&crop=" class="hoverZoomLink">
+      </a>
 
-    <!-- and role or location -->
-          <h2>
-            <%= @event.title %>
-          </h2>
-          <h3> Location : <%= @event.address %></h4>
+      <!-- the username -->
+      <h1>
+              <%= @event.user.name %>
+            </h1>
 
-  </header>
+      <!-- and role or location -->
+            <h2>
+              <%= @event.title %>
+            </h2>
+            <h3> Location : <%= @event.address %></h4>
 
-  <div class="profile-bio">
+    </header>
 
-    <h4>
-      <%= @event.description %>
-    </h4>
+    <div class="profile-bio">
 
-  </div>
+      <h4>
+        <%= @event.description %>
+      </h4>
 
-  <!-- some social links to show off -->
-<div class="participate">
-      <%= simple_form_for [@event, @participation] do |f| %>
-        <%= f.button :submit, value: "Confirm Participation", class: "btn btn-primary cta"  %>
-          <% end %>
-        </div>
+    </div>
 
-</aside>
+    <!-- some social links to show off -->
+  <div class="participate">
+        <%= simple_form_for [@event, @participation] do |f| %>
+          <%= f.button :submit, value: "Confirm Participation", class: "btn btn-primary cta"  %>
+            <% end %>
+          </div>
+
+  </aside>
+</div>
