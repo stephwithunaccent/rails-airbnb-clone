@@ -50,9 +50,9 @@ participation_2.save
 event2.photo_url = url
 
 url = "http://res.cloudinary.com/dbojzvt5e/image/upload/v1503058353/o-FIFTY-SHADES-OF-GREY-facebook_h05b91.jpg"
-event3 = Event.create({user: jerome, start_at: "2016-07-15 15:37:33 +0200", description: "Hey, we love sex and violence. We are welcoming free lancers of pur pleasure", address: 'Paris, rue de rome', title:'Domination & Candles'})
+event3 = Event.create({user: jerome, start_at: "2017-09-15 15:37:33 +0200", description: "Hey, we love sex and violence. We are welcoming free lancers of pur pleasure", address: 'Paris, rue de rome', title:'Domination & Candles'})
 participation_3 = Participation.new
-participation_3.user = leo
+participation_3.user = lea
 participation_3.event = event3
 participation_3.save
 event3.photo_url = url
@@ -60,7 +60,7 @@ event3.photo_url = url
 url = "http://res.cloudinary.com/dbojzvt5e/image/upload/v1503059397/eyes8_kfc50i.png"
 event4 = Event.create({user: lea, start_at: "2017-09-15 15:37:33 +0200", description: "Hey, we love sex and violence. We are welcoming free lancers of pur pleasure", address: 'Paris, 17 boulevard des batignolles', title:'Doggy Style Orgie'})
 participation_4 = Participation.new
-participation_4.user = leo
+participation_4.user = lea
 participation_4.event = event4
 participation_4.save
 event4.photo_url = url
