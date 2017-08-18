@@ -12,7 +12,7 @@
         <div class="col-xs-12 col-sm-4 border-right">
           <% if !current_user.photo? %>
             <div class="text-center">
-              <%= cl_image_tag("avatar-placeholder.png", width: 200, height: 200, crop: :fill) %>
+              <%= image_tag("couple-placeholder.png", width: 200, height: 200, crop: :fill) %>
             </div>
           <% else %>
             <div class="text-center">
@@ -27,18 +27,27 @@
           <% end %>
           <i class="fa fa-pencil" aria-hidden="true"></i><%= link_to " edit my profile", edit_user_path(current_user) %>
           <h3>Reviews</h3>
-          <div class="reviews">
+
+          <div class="review">
             <% current_user.events.each do |event| %>
               <% event.participations.each do |participation| %>
-                <div class="review">
-                  <%= "★" * participation.rating.to_i %>
-                  <%= participation.review %>
-                </div>
+              <% if participation.review %>
+                <% if !participation.user.photo? %>
+                  <%= cl_image_tag "avatar-placeholder.png", width: 60, height: 60, crop: :fill %>
+                <% else %>
+                  <%= cl_image_tag participation.user.photo.path, width: 60, height: 60, radius: :max, crop: :fill,  gravity: :face %>
+                <% end %>
+                  <div class="review-details">
+                  <%  full = participation.rating.to_i %>
+                  <span><%= "✭" * full + "✩" * (10 - full) %></span>
+                  <p><%= participation.review %></p>
+                  </div>
+                <% end %>
               <% end %>
             <% end %>
           </div>
-        </div>
 
+        </div>
       </div>
   </div>
 </div>

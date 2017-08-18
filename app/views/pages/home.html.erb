@@ -1,35 +1,24 @@
 <% content_for(:navbar_home, "yes") %>
 
-<div class="banner" style="background-image: linear-gradient(-225deg, rgba(5,6,32,0.2) 0%, rgba(5,6,32,0.8) 50%), url(<%= image_url('fresque.jpg') %>)"; >
+<div class="banner" style="background-image: linear-gradient(-225deg, rgba(5,6,32,0.2) 0%, rgba(5,6,32,0.8) 50%), url(<%= image_url('fresque.jpg') %>)";>
   <div class="banner-content">
+      <h1 href="" class="typewrite" data-period="2000" data-type='[ "Hi, I am looking for Fun.", "I am Open-minded.", "... and I love Sex." ]'>
+        <span class="wrap"></span>
+      </h1>
 
 
-    <h1 href="" class="typewrite marged" data-period="2000" data-type='[ "Hi, I am looking for Fun.", "I am Open-minded.", "... and I love Sex." ]'>
-      <span class="wrap"></span>
-    </h1>
-
-
-    <div class="container">
-      <div class="row">
-
-        <div class="col-xs-12">
-       <%= simple_form_for :search, :html => { role: 'form', class: 'form-inline' }, url: events_path, method: :get do |f|  %>
-      <%= f.input :sex, prompt: "Couple Type", :label => "I'm Horny For...", collection:['⚤ Straight', '⚣ Gay', '⚢ Lesbian'] %>
+    <%= simple_form_for :search, :html => { role: 'form', class: 'form-inline' }, url: events_path, method: :get do |f|  %>
+      <%= f.input :sex, prompt: "I am horny for", :label => false, collection:['⚣ Gay', '⚢ Lesbian', '⚤ Straight'] %>
       <%= f.input :address, placeholder: "Paris", label: false %>
-
       <% if user_signed_in? %>
-        <%= f.button :submit, "Let's Swing!" %>
+        <%= f.button :submit, "Let's swing" %>
       <% else %>
         <button type="button" class="btn btn-danger-home" data-toggle="modal" data-target="#myModal">
-          Let's Swing!
+          Let's swing
         </button>
-        </div>
-
-      </div>
-    </div>
-
       <% end %>
     <% end %>
+
   </div>
 </div>
 
@@ -39,48 +28,157 @@
   <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
-        <div class="modal-body">
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button> <h2>Sign up</h2>
-          <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-          <%= f.error_notification %>
-            <div class="form-inputs">
-              <%= f.input :name, required: true %>
-              <%= f.input :sex, label: 'My couple is', required: true, :collection => ['⚤ Straight', '⚣ Gay', '⚢ Lesbian'] %>
-              <%= f.input :age, required: true %>
-              <%= f.input :email, required: true, autofocus: true %>
-              <%= f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length) %>
-              <%= f.input :password_confirmation, required: true %>
-            </div>
-            <div class="form-actions">
-              <%= f.button :submit, "LET'S SWING!" %>
-            </div>
-          <% end %>
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="myModalLabel">Match me to other Swingers</h4>
         </div>
+        <div class="modal-body">
+         <h2>Sign up</h2>
+
+         <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+         <%= f.error_notification %>
+
+         <div class="form-inputs">
+          <%= f.input :name, required: true %>
+          <%= f.input :sex, label: 'My couple is', required: true, :collection => ['Man & Woman', 'Man & Man', 'Woman & Woman'] %>
+          <%= f.input :age, required: true %>
+          <%= f.input :email, required: true, autofocus: true %>
+          <%= f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length) %>
+          <%= f.input :password_confirmation, required: true %>
+        </div>
+
+        <div class="form-actions">
+          <%= f.button :submit, "Sign up" %>
+        </div>
+        <% end %>
+
+        <%= render "devise/shared/links" %>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
       </div>
     </div>
   </div>
 
-  <div class="container">
-    <div class="beige-bg" id="how-it-works">
-      <div class="fullwidth-content">
-        <div id="arrow-down">
-          <div></div>
-          </div>
-          <h2 style="text-align:center">How to Swing?</h2>
-          <div class="values-unit" id="values-unit-1">
-            <h3 class="num">
-
-            </h3>
-            <h4>Choose your orientation</h4>
-            <p>
-              We welcome heterosexuals, homese
-          </div>
-          <div class="values-unit" id="values-unit-1"></div>
-          <div class="values-unit" id="values-unit-1"></div>
+<div class="fullwidth-content">
+  <div class="row">
+    <div class="col-md-4">
+      <div class="info-content text-center">
+        <h3 class="num">
+          <p><span><i class="fa fa-venus-mars" aria-hidden="true"></i></span></p>
+        </h3>
+        <h4>Choose Orientation</h4>
+        <p>
+          We enable all types of couples to match, you choose the orientation that you feel like meeting!
+        </p>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="info-content text-center">
+        <h3 class="num">
+          <p><span><i class="fa fa-globe" aria-hidden="true"></i></span></p>
+        </h3>
+        <h4>Choose Location</h4>
+        <p>
+          The world is your oyster! Literally. We connect swingers all over the world.
+        </p>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="info-content text-center">
+        <h3 class="num">
+          <p><span><i class="fa fa-heart-o" aria-hidden="true"></i></span></p>
+        </h3>
+        <h4>Book Swing-Event</h4>
+        <p>
+          Found your happiness? Book in one click!
+        </p>
       </div>
     </div>
   </div>
+</div>
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="carousel slide" data-ride="carousel" id="quote-carousel">
+        <!-- Carousel Slides / Quotes -->
+        <div class="carousel-inner text-center">
+          <!-- Quote 1 -->
+          <div class="item active">
+            <blockquote>
+              <div class="row">
+                <div class="col-sm-8 col-sm-offset-2">
+                <p>After many years with my booboo, our 'date nights' started lacking creativity. We've always been quite curious about going outside our comfortzone sexually to spice up our relationship. So when we went on a long week-end away to London from our hometown we thought it was the perfect moment to try it out! The encounter was spot on. I am officially a swinger, and I love it!</p>
+                  <small>Aston</small>
+                </div>
+              </div>
+            </blockquote>
+          </div>
+          <!-- Quote 2 -->
+          <div class="item">
+            <blockquote>
+              <div class="row">
+                <div class="col-sm-8 col-sm-offset-2">
+                  <p>I tend to be late to many things, but I can assure you I didn't 'come' late this time! </p>
+                  <small>Cyril</small>
+                </div>
+              </div>
+            </blockquote>
+          </div>
+          <!-- Quote 3 -->
+          <div class="item">
+            <blockquote>
+              <div class="row">
+                <div class="col-sm-8 col-sm-offset-2">
+                  <p>Ma femme Tchouchou et moi avons beaucoup apprécié ce moment de partage. Nous éspèrons revoir Jérome et Arnaud très vite. </p>
+                  <small>Maxou</small>
+                </div>
+              </div>
+            </blockquote>
+          </div>
+        <!-- Quote 4 -->
+          <div class="item">
+            <blockquote>
+              <div class="row">
+                <div class="col-sm-8 col-sm-offset-2">
+                  <p>Je suis très serieux, mais au fond de moi je suis un petit coquin et un artiste! Let's Swing m'a permis de m'épanouir dans les rencontres échangistes, tout en sécurité et seriosité.</p>
+                  <small>Bertrand</small>
+                </div>
+              </div>
+            </blockquote>
+          </div>
+        </div>
+
+
+
+        <!-- Bottom Carousel Indicators -->
+        <ol class="carousel-indicators">
+          <li data-target="#quote-carousel" data-slide-to="0" class="active"><img class="img-responsive " src="https://kitt.lewagon.com/placeholder/users/tgenai">
+          </li>
+          <li data-target="#quote-carousel" data-slide-to="1"><img class="img-responsive" src="https://avatars3.githubusercontent.com/u/28042850?v=4" alt="">
+          </li>
+          <li data-target="#quote-carousel" data-slide-to="2"><img class="img-responsive" src="https://avatars1.githubusercontent.com/u/20045463?v=4" alt="">
+          </li>
+          <li data-target="#quote-carousel" data-slide-to="2"><img class="img-responsive" src="https://farm3.static.flickr.com/2651/5769205374_f492981753_b.jpg" alt="">
+          </li>
+        </ol>
+
+
+        <!-- Carousel Buttons Next/Prev -->
+        <a data-slide="prev" href="#quote-carousel" class="left carousel-control"><i class="fa fa-chevron-left"></i></a>
+        <a data-slide="next" href="#quote-carousel" class="right carousel-control"><i class="fa fa-chevron-right"></i></a>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
 
   <% content_for :after_js do %>
     <%= render 'banner' %>
-  <% end %>
+<% end %>

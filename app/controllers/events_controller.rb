@@ -1,13 +1,30 @@
 class EventsController < ApplicationController
 
   def index
-    if search_params[:sex].present?
+
+    search = Geocoder.search(params[:search][:address]).first
+    @near_events = Event.near(search.coordinates, 20)
+
+    if search_params[:sex].present? && search_params[:address].present?
+      @events = Event.all.select do |event|
+        @near_events.include?(event) && event.user.sex == search_params[:sex]
+      end
+
+    elsif !search_params[:address].present? && search_params[:sex].present?
       @events = Event.all.select do |event|
         event.user.sex == search_params[:sex]
       end
+
+    elsif !search_params[:sex].present? && search_params[:address].present?
+      @events = Event.all.select do |event|
+        @near_events.include?(event)
+      end
+
     else
       @events = Event.all
     end
+
+
     @hash = Gmaps4rails.build_markers(@events) do |event, marker|
       marker.lat event.latitude
       marker.lng event.longitude
@@ -48,7 +65,7 @@ class EventsController < ApplicationController
   end
 
   def search_params
-    params.require(:search).permit(:sex)
+    params.require(:search).permit(:sex, :address)
   end
 end
 
