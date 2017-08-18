@@ -1,23 +1,22 @@
 <div class="all-content">
   <div class="row">
-    <div class="col-sm-12">
-      <%= simple_form_for :search, :html => { role: 'form', class: 'form-inline' }, url: events_path, method: :get do |f|  %>
-      <%= f.input :sex, :label => false, collection:['⚣ Gay', 'Lesbian', '⚤ Straight'], input_html: { value: params[:search][:sex] } %>
-      <%= f.input :address, placeholder: "Paris", label: false, input_html: { value: params[:search][:address] } %>
-      <% if user_signed_in? %>
-        <%= f.button :submit, "Let's swing" %>
-      <% else %>
-        <button type="button" class="btn btn-danger-home" data-toggle="modal" data-target="#myModal">
-          Let's swing
-        </button>
-      <% end %>
-    <% end %>
-    </div>
-
     <div class="col-sm-8">
       <div class="main-content">
-      <h1 class="text-center">Events for ...</h1>
-        <div class="row">
+        <div class=" margin-zero row">
+          <div class="search-bar text-center">
+            <%= simple_form_for :search, :html => { role: 'form', class: 'form-inline' }, url: events_path, method: :get do |f|  %>
+              <%= f.input :sex, :label => false, collection:['⚣ Gay', '⚢ Lesbian', '⚤ Straight'], input_html: { value: params[:search][:sex] } %>
+              <%= f.input :address, placeholder: "Paris", label: false, input_html: { value: params[:search][:address] } %>
+              <% if user_signed_in? %>
+              <%= f.button :submit, "Let's swing" %>
+              <% else %>
+              <button type="button" class="btn btn-danger-home" data-toggle="modal" data-target="#myModal">
+                Let's swing
+              </button>
+              <% end %>
+            <% end %>
+          </div>
+
           <% @events.each do |event| %>
             <div class="col-xs-12 col-sm-6 col-md-4">
               <div class="card">
