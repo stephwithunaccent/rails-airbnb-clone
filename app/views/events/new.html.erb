@@ -7,6 +7,7 @@
       <%= f.input :start_at, value: Time.now%>
       <%= f.input :description, placeholder: 'Loulou & Coco, 28 et 34 ans vous accueillent pour une soirée chaude!'  %>
       <%= f.input :address %>
+      <%= f.input :photo, as: :attachinary, class: "image-field"  %>
       <%= f.button :submit, class: "btn btn-primary" %>
     <% end %>
     </div>
