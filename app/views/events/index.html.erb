@@ -27,7 +27,9 @@
                       <h2><%= event.title %></h2>
                       <p><i class="fa fa-map-marker" aria-hidden="true"></i> <%= event.address %></p>
                     </div>
-                  <img class="card-user" src="https://kitt.lewagon.com/placeholder/users/tgenai">
+                  <% if event.user.photo? %>
+                    <img class="card-user" src="<%= cl_image_path event.user.photo.path%>">
+                  <% end %>
                   <%= link_to "", event_path(event), class: "card-link"  %>
                 </div>
                 <div class="card-footer">
