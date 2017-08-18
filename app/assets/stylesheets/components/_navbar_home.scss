@@ -41,9 +41,17 @@
   color: #fff;
   font-size: 14px;
 }
+
+.navbar-home-sign-up-link {
+  border: 1px solid $myster;
+  border-radius: 2px;
+  padding: 6px 12px;
+  background-color: $myster;
+}
+
 .navbar-home-link:hover {
-  color: #960200;
   text-decoration: none;
+  color: #D8D8D8 !important;
 }
 
 /* Dropdown menu */

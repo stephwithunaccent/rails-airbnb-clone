@@ -3,3 +3,13 @@
 .marged {
   margin-bottom: 50px;
 }
+
+.search-btn {
+  background-color: rgba(0,0,0,0);
+  color: #fff;
+}
+.search-btn:hover {
+  background-color: $myster;
+  border-color: $myster;
+  color: #fff;
+}

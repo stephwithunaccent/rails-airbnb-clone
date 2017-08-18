@@ -11,9 +11,9 @@
       <%= f.input :sex, prompt: "I am horny for", :label => false, collection:['⚣ Gay', '⚢ Lesbian', '⚤ Straight'] %>
       <%= f.input :address, placeholder: "Paris", label: false %>
       <% if user_signed_in? %>
-        <%= f.button :submit, "Let's swing" %>
+        <%= f.button :submit, "Let's swing", class: "search-btn" %>
       <% else %>
-        <button type="button" class="btn btn-danger-home" data-toggle="modal" data-target="#myModal">
+        <button type="button" class="btn btn-default search-btn" data-toggle="modal" data-target="#myModal">
           Let's swing
         </button>
       <% end %>

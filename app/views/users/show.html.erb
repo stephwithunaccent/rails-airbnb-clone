@@ -26,7 +26,7 @@
             <%= f.input :sex, disabled: true, collection: ["Man & Woman", "Man & Man", "Woman & Woman"], label: "Couple Type" %>
           <% end %>
           <i class="fa fa-pencil" aria-hidden="true"></i><%= link_to " edit my profile", edit_user_path(current_user) %>
-          <h3>Reviews</h3>
+          <h2 class="review-title">Reviews</h2>
 
           <div class="review">
             <% current_user.events.each do |event| %>
