@@ -8,49 +8,34 @@
 
 
   <div class="row">
-    <div class="to-come">
-      <h2>Upcoming</h2>
-      <% @participations.each do |participation| %>
-        <% if participation.event.start_at > Time.now %>
-          <div class="col-xs-12 col-sm-4">
-            <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://images.unsplash.com/photo-1491707202941-6395f060840f?dpr=2&auto=format&fit=crop&w=1500&h=1125&q=80&cs=tinysrgb&crop=');">
-            <div class="card-category"><%= participation.event.title  %></div>
-            <div class="card-description">
-              <h2><%= ["moustache night tonight 🤗", "good times, very soon ✨", "yeha 🤠", "let's have some fun 🍑", "sex is my favorite sport 😇", "damn I love couples 😏", "pushing origin master 🤓", "sushi night 🍣"].sample  %></h2>
-              <p><%= participation.event.description  %></p>
-            </div>
-              <img class="card-user" src="https://kitt.lewagon.com/placeholder/users/tgenai">
-              <a class="card-link" href="#" ></a>
-            </div>
-          </div>
-        <% end %>
-      <% end %>
-    </div>
-  </div>
 
-  <div class="row">
-    <div class="passed">
-      <h2>Passed</h2>
-      <% @participations.each do |participation| %>
-        <% if participation.event.start_at < Time.now %>
-          <div class="col-xs-12 col-sm-4">
-            <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://images.unsplash.com/photo-1491707202941-6395f060840f?dpr=2&auto=format&fit=crop&w=1500&h=1125&q=80&cs=tinysrgb&crop=');">
-            <div class="card-category"><%= participation.event.title  %></div>
-            <div class="card-description">
-              <h2><%= ["moustache night tonight 🤗", "good times, very soon ✨", "yeha 🤠", "let's have some fun 🍑", "sex is my favorite sport 😇", "damn I love couples 😏", "pushing origin master 🤓", "sushi night 🍣"].sample  %></h2>
-              <p><%= participation.event.description  %></p>
-            </div>
-              <img class="card-user" src="https://kitt.lewagon.com/placeholder/users/tgenai">
-              <a class="card-link" href="#" ></a>
-            </div>
-            <% unless participation.review %>
-              <%= link_to "Add a review", edit_user_participation_path(current_user, participation) %>
-            <% end %>
+    <div class="col-xs-6">
+      <h2>Upcoming</h2>
+      <div class="row">
+        <% @participations.upcoming.each do |participation| %>
+          <div class="col-xs-6">
+            <%= render "participations/participation", participation: participation %>
           </div>
         <% end %>
-      <% end %>
+      </div>
     </div>
+
+    <div class="col-xs-6">
+      <h2>Past</h2>
+      <div class="row">
+        <% @participations.past.each do |participation| %>
+          <div class="col-xs-6">
+            <%= render "participations/participation", participation: participation %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
   </div>
+</div>
+
+
+
 
 
 

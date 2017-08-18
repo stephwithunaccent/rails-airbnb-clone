@@ -14,12 +14,14 @@
     <% end %>
     </div>
 
+
     <div class="col-sm-8">
       <div class="main-content">
       <h1 class="text-center">Events for ...</h1>
         <div class="row">
           <% @events.each do |event| %>
             <div class="col-xs-12 col-sm-6 col-md-4">
+              <% if start_at > Time.now %>
               <div class="card">
                 <div class="card-body" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://images.unsplash.com/photo-1491707202941-6395f060840f?dpr=2&auto=format&fit=crop&w=1500&h=1125&q=80&cs=tinysrgb&crop=');">
                   <div class="card-category"><%= event.user.name  %></div>
@@ -36,6 +38,7 @@
                   <p><i class="fa fa-calendar" aria-hidden="true"></i> <%= event.start_at.strftime("Scheduled on %d/%m/%Y") %></p>
                 </div>
               </div>
+              <%end%>
             </div>
           <%end%>
         </div>
