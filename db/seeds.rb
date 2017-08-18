@@ -7,7 +7,13 @@ puts "Filling seed"
 
 puts "generating seed"
 jerome = User.create({email: "jerome@gmail.com", password: "123soleil", name: 'Jerome & Arnaud', sex: '⚣ Gay'})
-lea = User.create({email: "lea@gmail.com", password: "123soleil", name: 'Lea & Mathieu', sex: 'Lesbian'})
+
+
+url = "http://res.cloudinary.com/dbojzvt5e/image/upload/v1502981985/pxznnrtevxlxukxk1vlk.jpg"
+lea = User.create({email: "lea@gmail.com", password: "123soleil", name: 'Lea & Mathieu', sex: '⚤ Straight'})
+lea.photo_url = url
+
+
 leo = User.create({email: "leo@gmail.com", password: "123soleil", name: 'Kim & Leo', sex: '⚤ Straight'})
 
 event1 = Event.create({user: leo, start_at: "2018-05-15 15:37:33 +0200", description: "Un peu de plaisir n'a jamais tué personne... Jeu de main jeu de vilain...", address: 'Paris', title:'Les Jambes Attachées'})
