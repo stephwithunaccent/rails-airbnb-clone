@@ -1,31 +1,50 @@
-<h1>List of Events</h1>
-<div class="container">
+<div class="all-content">
   <div class="row">
-
-
-    <div class="col-sm-8">
-      <div class="row">
-        <% @events.each do |event| %>
-          <div class="col-xs-12 col-sm-4">
-            <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://images.unsplash.com/photo-1491707202941-6395f060840f?dpr=2&auto=format&fit=crop&w=1500&h=1125&q=80&cs=tinysrgb&crop=');">
-              <div class="card-category"><%= event.title  %></div>
-              <div class="card-description">
-                <h2><%= event.address  %></h2>
-                <p><%= event.description  %></p>
-              </div>
-              <img class="card-user" src="https://kitt.lewagon.com/placeholder/users/tgenai">
-              <%= link_to "", event_path(event), class: "card-link"  %>
-            </div>
-          </div>
-        <%end%>
-      </div>
+    <div class="col-sm-12">
+      <%= simple_form_for :search, :html => { role: 'form', class: 'form-inline' }, url: events_path, method: :get do |f|  %>
+      <%= f.input :sex, :label => false, collection:['Male & Male', 'Female & Female', 'Male & Female'], input_html: { value: params[:search][:sex] } %>
+      <%= f.input :address, placeholder: "Paris", label: false, input_html: { value: params[:search][:address] } %>
+      <% if user_signed_in? %>
+        <%= f.button :submit, "Let's swing" %>
+      <% else %>
+        <button type="button" class="btn btn-danger-home" data-toggle="modal" data-target="#myModal">
+          Let's swing
+        </button>
+      <% end %>
+    <% end %>
     </div>
 
+    <div class="col-sm-8">
+      <div class="main-content">
+      <h1 class="text-center">Events for ...</h1>
+        <div class="row">
+          <% @events.each do |event| %>
+            <div class="col-xs-12 col-sm-6 col-md-4">
+              <div class="card">
+                <div class="card-body" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://images.unsplash.com/photo-1491707202941-6395f060840f?dpr=2&auto=format&fit=crop&w=1500&h=1125&q=80&cs=tinysrgb&crop=');">
+                  <div class="card-category"><%= event.user.name  %></div>
+                    <div class="card-description">
+                      <h2><%= event.title %></h2>
+                      <p><i class="fa fa-map-marker" aria-hidden="true"></i> <%= event.address %></p>
+                    </div>
+                  <img class="card-user" src="https://kitt.lewagon.com/placeholder/users/tgenai">
+                  <%= link_to "", event_path(event), class: "card-link"  %>
+                </div>
+                <div class="card-footer">
+                  <p><i class="fa fa-calendar" aria-hidden="true"></i> <%= event.start_at.strftime("Scheduled on %d/%m/%Y") %></p>
+                </div>
+              </div>
+            </div>
+          <%end%>
+        </div>
+      </div>
+    </div>
     <div class="col-sm-4">
       <div id="map" style="width: 100%; height: 600px;"></div>
     </div>
   </div>
 </div>
+
 <%= content_for(:after_js) do %>
   <script>
     $(document).ready(function() {
@@ -43,3 +62,5 @@
     });
   </script>
 <% end %>
+
+

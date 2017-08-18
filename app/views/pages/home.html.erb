@@ -10,6 +10,7 @@
 
     <%= simple_form_for :search, :html => { role: 'form', class: 'form-inline' }, url: events_path, method: :get do |f|  %>
       <%= f.input :sex, prompt: "I am horny for", :label => false, collection:['Male & Male', 'Female & Female', 'Male & Female'] %>
+      <%= f.input :address, placeholder: "Paris", label: false %>
       <% if user_signed_in? %>
         <%= f.button :submit, "Let's swing" %>
       <% else %>
@@ -18,6 +19,7 @@
         </button>
       <% end %>
     <% end %>
+
   </div>
 </div>
 
@@ -176,10 +178,10 @@
 
 
 
-<% content_for :after_js2 do %>
-<%= render 'banner' %>
-<% end %>
 
 
+  <% content_for :after_js do %>
+    <%= render 'banner' %>
+  <% end %>
 
 
